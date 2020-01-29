@@ -1,0 +1,18 @@
+﻿@model MioSito.Models.Contatto;
+
+@{
+    ViewData["Title"] = "Contatti";
+}
+
+
+<h1>Contatti</h1>
+
+<div>
+    Nome:      @Model.Nome<br />
+    Cognome:   @Model.Cognome<br />
+    <img src="~/images/ImagineDragons.jpg" />
+    Città:     @Model.Città<br />
+    Indirizzo: @Model.Indirizzo<br />
+    Telefono:  @Model.Telefono<br />
+    Immagine:  <img src="@Model.Immagine.ToString()" /><br />
+</div>
