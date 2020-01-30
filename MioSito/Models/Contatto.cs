@@ -7,11 +7,11 @@ namespace MioSito.Models
 {
     public class Contatto
     {
-        public string Nome { get; set; } = "Giuseppe"; 
-        public string Cognome { get; set; } = "Baldoni";
-        public string Indirizzo { get; set; } = "via byhv";
-        public string Città { get; set; } = "baban";
-        public int Telefono { get; set; } = 125463;
+        public string Nome { get; set; } = ""; 
+        public string Cognome { get; set; } = "";
+        public string Indirizzo { get; set; } = "";
+        public string Città { get; set; } = "";
+        public string Telefono { get; set; } = "";
         public string Immagine { get; set; } = "~/images/ImagineDragons.jpg";
 
         

@@ -4,15 +4,93 @@
     ViewData["Title"] = "Contatti";
 }
 
+@{
+    Layout = "_LayoutContatti";
+}
 
 <h1>Contatti</h1>
 
 <div>
-    Nome:      @Model.Nome<br />
+    Nome:      @Model.Nome<br />@*  se hai le proprietà già settate  *@
     Cognome:   @Model.Cognome<br />
-    <img src="~/images/ImagineDragons.jpg" />
     Città:     @Model.Città<br />
     Indirizzo: @Model.Indirizzo<br />
     Telefono:  @Model.Telefono<br />
-    Immagine:  <img src="@Model.Immagine.ToString()" /><br />
+    <img src="@Url.Content(Model.Immagine)" /><br />
+
+    <form action="Report" method="get">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Nome</label>
+                <input type="text" class="form-control" id="inputEmail4" placeholder="scrivi qua">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+            </div>
+        </div>
+        @*<div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress2">Address 2</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    Check me out
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>*@
+    </form>
+
+
+
+
+
+
+
+@*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*@
+    <form action="" method="get">
+        <div class="contenitore">
+
+            Password:  @Html.Password("sni")
+            check box: @Html.CheckBox("aa", true, "nhg")
+            <select>
+                <option selected>Scegli</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select><br />
+            <div class="insert">
+                <label asp-for="Nome"></label>      <input asp-for="Nome" requered /><br />
+                <label asp-for="Cognome"></label>   <input asp-for="Cognome" requered /><br />
+                <label asp-for="Città"></label>     <input asp-for="Città" requered /><br />
+                <label asp-for="Indirizzo"></label> <input asp-for="Indirizzo" requered /><br />
+                <label asp-for="Telefono"></label>  <input asp-for="Telefono" requered /><br />
+            </div>
+        </div>
+    </form>
+
 </div>

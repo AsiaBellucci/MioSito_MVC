@@ -20,7 +20,7 @@ namespace MioSito.Controllers
         }
 
         // GET: Contatti/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Report()
         {
             return View();
         }
