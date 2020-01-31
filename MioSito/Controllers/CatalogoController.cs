@@ -8,34 +8,31 @@ using MioSito.Models;
 
 namespace MioSito.Controllers
 {
-    public class ContattiController : Controller
+    public class CatalogoController : Controller
     {
-
-        // GET: Contatti
+        // GET: Catalogo
         public ActionResult Index()
         {
-            Contatto c = new Contatto();
-            
-            return View(c);
+            Catalogo c = new Catalogo() { 
+            Immagine= "immag", Prodotto= "prod1", Prezzo= "543"};
+            List<Catalogo> lista = new List<Catalogo>();
+            lista.Add(c);
+            return View(lista);
         }
 
-        // GET: Contatti/Report/5
-        public ActionResult Report(Report risp)
+        // GET: Catalogo/Details/5
+        public ActionResult Dettagli(/*Dettagli dett*/)
         {
-            return View(risp);
+            return View(/*dett*/);
         }
 
-        public ActionResult PassaggioDati(Report dati)
-        {
-            return View(dati);
-        }
-        // GET: Contatti/Create
+        // GET: Catalogo/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Contatti/Create
+        // POST: Catalogo/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -52,13 +49,13 @@ namespace MioSito.Controllers
             }
         }
 
-        // GET: Contatti/Edit/5
+        // GET: Catalogo/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Contatti/Edit/5
+        // POST: Catalogo/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -75,13 +72,13 @@ namespace MioSito.Controllers
             }
         }
 
-        // GET: Contatti/Delete/5
+        // GET: Catalogo/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Contatti/Delete/5
+        // POST: Catalogo/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
@@ -97,8 +94,5 @@ namespace MioSito.Controllers
                 return View();
             }
         }
-
-
-        
     }
 }

@@ -2,13 +2,20 @@
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 
-@model Contatto
+@model Report
 
 <h2>Risultati</h2>
-<form action="Report" method="get">
-    <label for="inputEmail4">Email</label>
-    <input type="text" class="form-control" id="inputEmail4" placeholder="Email">
-    <input type="submit" />
+<form asp-controller="Contatti" asp-action="Report" method="get">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            Email: <input asp-for="Email" /><br />
+            Password: <input asp-for="Password" /><br />
+        </div>
+        <button type="submit" class="btn btn-primary" asp-action="PassaggioDati">Registrati</button>
+        @*<p>
+            La tua mail è : @Model.Email<br />
+            La tua password è:l @Model.Password
+        </p>*@
+    </div>
 </form>
-
 

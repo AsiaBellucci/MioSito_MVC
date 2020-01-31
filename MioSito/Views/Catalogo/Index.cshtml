@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model List<Catalogo>
+@*@model Catalogo*@
+@*@model System.Collections.Generic.List[MioSito.Models.c]*@
+<h2>Catalogo corsi</h2>
+
+<div class="row md-3">
+    <div class="col-md-2"><b>Immagini</b></div>
+    <div class="col-md-4"><b>Prodotti</b></div>
+    <div class="col-md-3"><b>Prezzo</b></div>
+    <div class="col-md-3"><b>Dettagli</b></div>
+</div>
+@*@for (int c = 0; c <= 10; c++)
+{*@
+    <form asp-controller="Catalogo" asp-action="Dettagli" method="get">
+       @foreach(Catalogo x in Model)
+        {
+
+        <div class="row md-3">
+            <div class="col-md-2">@x.Immagine</div>
+            <div class="col-md-4">@x.Prodotto</div>
+            <div class="col-md-3">@x.Prezzo</div>
+            <div class="col-md-3"><button type="submit">Dettagli</button></div>
+
+        </div>
+        }
+    </form>
+@*}*@
