@@ -1,4 +1,4 @@
-﻿@model MioSito.Models.Contatto;
+﻿@model MioSito.Models.Servicies.Application.ContattoService
 
 @{
     ViewData["Title"] = "Contatti";
@@ -11,12 +11,12 @@
 <h1>Contatti</h1>
 
 <div>
-    Nome:      @Model.Nome<br />@*  se hai le proprietà già settate  *@
-    Cognome:   @Model.Cognome<br />
-    Città:     @Model.Città<br />
-    Indirizzo: @Model.Indirizzo<br />
-    Telefono:  @Model.Telefono<br />
-    <img src="@Url.Content(Model.Immagine)" /><br />
+    Nome:      @Model.GetContatto().Nome<br />@*  se hai le proprietà già settate  *@
+    Cognome:   @Model.GetContatto().Cognome<br />
+    Città:     @Model.GetContatto().Città<br />
+    Indirizzo: @Model.GetContatto().Indirizzo<br />
+    Telefono:  @Model.GetContatto().Telefono<br />
+    <img src="@Url.Content(Model.GetContatto().Immagine)" /><br />
 
     
 
@@ -27,7 +27,7 @@
 
 
 @*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*@
-    <form action="" method="get">
+    @*<form action="" method="get">
         <div class="contenitore">
 
             Password:  @Html.Password("sni")
@@ -46,6 +46,6 @@
                 <label asp-for="Telefono"></label>  <input asp-for="Telefono" requered /><br />
             </div>
         </div>
-    </form>
+    </form>*@
 
 </div>

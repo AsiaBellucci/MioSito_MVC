@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MioSito.Models;
+using MioSito.Models.Servicies.Application;
+using MioSito.Models.ViewModels;
 
 namespace MioSito.Controllers
 {
@@ -12,10 +14,8 @@ namespace MioSito.Controllers
     {
 
         // GET: Contatti
-        public ActionResult Index()
+        public ActionResult Index(ContattoService c)
         {
-            Contatto c = new Contatto();
-            
             return View(c);
         }
 

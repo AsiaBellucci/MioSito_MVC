@@ -13,18 +13,10 @@ namespace MioSito.Models
         public string Prezzo { get; set; } = "€ bh";
 
         
-        //public List<Catalogo> AddValueToList(Catalogo c, List<Catalogo> listaC)
-        //{
-            
-        //    listaC.Add(c);
-        //    return listaC;
-        //}
-
-
     }
-    
-    public class ListCatalogo
-    {
-        public List<Catalogo> ListaC { get; set; }
-    }
+
+    //public class ListCatalogo
+    //{
+    //    public List<Catalogo> ListaC { get; set; }
+    //}
 }

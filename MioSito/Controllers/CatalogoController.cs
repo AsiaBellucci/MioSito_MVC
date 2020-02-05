@@ -13,8 +13,12 @@ namespace MioSito.Controllers
         // GET: Catalogo
         public ActionResult Index()
         {
-            Catalogo c = new Catalogo() { 
-            Immagine= "immag", Prodotto= "prod1", Prezzo= "543"};
+            Catalogo c = new Catalogo()
+            {
+                Immagine = "immag",
+                Prodotto = "prod1",
+                Prezzo = "543"
+            };
             List<Catalogo> lista = new List<Catalogo>();
             lista.Add(c);
             return View(lista);
