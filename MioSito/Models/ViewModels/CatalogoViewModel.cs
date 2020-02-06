@@ -3,21 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MioSito.Models
+namespace MioSito.Models.ViewModels
 {
-    public class Catalogo
+    public class CatalogoViewModel
     {
-        
         public string Immagine { get; set; }
         public string Prodotto { get; set; }
         public string Prezzo { get; set; }
-        public int Dettaglio { get; set; }
-
-        
+        public int IdDettaglio { get; set; }
     }
-
-    //public class ListCatalogo
-    //{
-    //    public List<Catalogo> ListaC { get; set; }
-    //}
 }

@@ -1,27 +1,28 @@
-﻿using System;
+﻿using MioSito.Models.Servicies.Application.Interfaces;
+using MioSito.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MioSito.Models.Servicies.Application
 {
-    public class CatalogoService
+    public class CatalogoService : ICatalogoService
     {
-        //public List<Catalogo> GetCatalogo()
-        //{
-        //    List<Catalogo> catalogoList = new List<Catalogo>();
+        public CatalogoService() { }
 
-        //    for(int i=0; i<10; i++)
-        //    {
-        //        Catalogo cat = new Catalogo()
-        //        {
-        //            Immagine = "immagine1",
-        //            Prodotto = "prodotto1",
-        //            Prezzo = "111"
-        //        };
-        //        catalogoList.Add(cat);
-        //    }
-        //    return catalogoList;
-        //}
+        public List<CatalogoViewModel> GetCatalogo()
+        {
+            CatalogoViewModel catalogo = new CatalogoViewModel()
+            {
+                Immagine = "immag",
+                Prodotto = "prod1",
+                Prezzo = "543",
+                IdDettaglio = 2
+            };
+            List<CatalogoViewModel> lista = new List<CatalogoViewModel>();
+            lista.Add(catalogo);
+            return lista;
+        }
     }
 }

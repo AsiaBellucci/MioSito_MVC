@@ -1,4 +1,4 @@
-﻿@model MioSito.Models.Servicies.Application.ContattoService
+﻿@model MioSito.Models.ViewModels.ContattoViewModel
 
 @{
     ViewData["Title"] = "Contatti";
@@ -11,20 +11,14 @@
 <h1>Contatti</h1>
 
 <div>
-    Nome:      @Model.GetContatto().Nome<br />@*  se hai le proprietà già settate  *@
-    Cognome:   @Model.GetContatto().Cognome<br />
-    Città:     @Model.GetContatto().Città<br />
-    Indirizzo: @Model.GetContatto().Indirizzo<br />
-    Telefono:  @Model.GetContatto().Telefono<br />
-    <img src="@Url.Content(Model.GetContatto().Immagine)" /><br />
+    Nome:      @Model.Nome<br />
+    Cognome:   @Model.Cognome<br />
+    Città:     @Model.Città<br />
+    Indirizzo: @Model.Indirizzo<br />
+    Telefono:  @Model.Telefono<br />
+    <img src="@Url.Content(Model.Immagine)" /><br />
 
     
-
-
-
-
-
-
 
 @*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*@
     @*<form action="" method="get">
@@ -39,7 +33,7 @@
                 <option value="3">3</option>
             </select><br />
             <div class="insert">
-                <label asp-for="Nome"></label>      <input asp-for="Nome" requered /><br />
+                <label asp-for="Nome"></label>      <input asp-for="Nome" requered /><br />//            se hai le proprietà già settate
                 <label asp-for="Cognome"></label>   <input asp-for="Cognome" requered /><br />
                 <label asp-for="Città"></label>     <input asp-for="Città" requered /><br />
                 <label asp-for="Indirizzo"></label> <input asp-for="Indirizzo" requered /><br />

@@ -5,23 +5,35 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MioSito.Models;
+using MioSito.Models.Servicies.Application.Interfaces;
+using MioSito.Models.ViewModels;
 
 namespace MioSito.Controllers
 {
     public class CatalogoController : Controller
     {
+        private readonly ICatalogoService _catalogo;
+
+        public CatalogoController(ICatalogoService catalogo)
+        {
+            this._catalogo = catalogo;
+        }
         // GET: Catalogo
         public ActionResult Index()
         {
+            #region Vecchio codice
             Catalogo c = new Catalogo()
             {
                 Immagine = "immag",
                 Prodotto = "prod1",
-                Prezzo = "543"
+                Prezzo = "543",
+                Dettaglio = 2
             };
             List<Catalogo> lista = new List<Catalogo>();
             lista.Add(c);
-            return View(lista);
+            #endregion
+            // CatalogoViewModel catalogo = _catalogo.GetCatalogo(); 
+            return View(c);
         }
 
         // GET: Catalogo/Details/5

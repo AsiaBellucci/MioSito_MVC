@@ -6,17 +6,25 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MioSito.Models;
 using MioSito.Models.Servicies.Application;
+using MioSito.Models.Servicies.Application.Interfaces;
 using MioSito.Models.ViewModels;
 
 namespace MioSito.Controllers
 {
     public class ContattiController : Controller
     {
+        private readonly IContattoService _contatto;
+
+        public ContattiController(IContattoService contatto)
+        {
+            this._contatto = contatto;
+        }
 
         // GET: Contatti
-        public ActionResult Index(ContattoService c)
+        public ActionResult Index()
         {
-            return View(c);
+            ContattoViewModel contatto = _contatto.GetContatto();
+            return View(contatto);
         }
 
         // GET: Contatti/Report/5
