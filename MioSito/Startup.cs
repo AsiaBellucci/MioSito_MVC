@@ -28,6 +28,7 @@ namespace MioSito
         {
             services.AddControllersWithViews();
             services.AddTransient<IContattoService, ContattoService>();
+            services.AddTransient<ICatalogoService, CatalogoService>();
             //services.AddScoped<IContattoService, ContattoService>();
             //services.AddSingleton<IContattoService, ContattoService>();
         }

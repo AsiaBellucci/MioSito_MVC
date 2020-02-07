@@ -2,7 +2,8 @@
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 
-@model List<Catalogo>
+@*@model List<CatalogoViewModel>*@
+@model MioSito.Models.ViewModels.CatalogoViewModel
 
     @*Perchè visualizzo una lista*@ 
 
@@ -17,7 +18,7 @@
 @for (int i = 0; i <= 10; i++)
 {
     <form asp-controller="Catalogo" asp-action="Dettagli" method="get">
-       @foreach(Catalogo x in Model)
+       @foreach(CatalogoViewModel x in Model)
         {
 
         <div class="row md-3">
