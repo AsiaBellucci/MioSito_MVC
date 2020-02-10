@@ -1,9 +1,9 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@using MioSito.Models.ViewModels
 
-@*@model List<CatalogoViewModel>*@
-@model MioSito.Models.ViewModels.CatalogoViewModel
+@model List<CatalogoViewModel>
 
     @*Perchè visualizzo una lista*@ 
 
@@ -25,7 +25,7 @@
             <div class="col-md-2">@x.Immagine</div>
             <div class="col-md-4">@x.Prodotto</div>
             <div class="col-md-3">@x.Prezzo</div>
-            <div class="col-md-3"><button type="submit" @*id="@x.Dettaglio"*@>@x.Dettaglio</button></div>
+            <div class="col-md-3"><button type="submit" id="@x.IdDettaglio">Dettaglio</button></div>
 
         </div>
         }

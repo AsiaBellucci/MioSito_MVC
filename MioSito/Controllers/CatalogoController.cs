@@ -39,9 +39,9 @@ namespace MioSito.Controllers
         }
 
         // GET: Catalogo/Details/5
-        public ActionResult Dettagli(/*Dettagli dett*/)
+        public ActionResult Dettagli(CatalogoViewModel dettaglio)
         {
-            return View(/*dett*/);
+            return View(dettaglio);
         }
 
         // GET: Catalogo/Create
