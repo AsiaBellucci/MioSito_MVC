@@ -21,11 +21,11 @@
        @foreach(CatalogoViewModel x in Model)
         {
 
-        <div class="row md-3">
-            <div class="col-md-2">@x.Immagine</div>
-            <div class="col-md-4">@x.Prodotto</div>
-            <div class="col-md-3">@x.Prezzo</div>
-            <div class="col-md-3"><button type="submit" id="@x.IdDettaglio">Dettaglio</button></div>
+        <div class="row md-3 divMax">
+            <div class="col-md-2 divImg"><img src="@x.ImagePath" class="immagine"/> </div>
+            <div class="col-md-4">@x.Title</div>
+            <div class="col-md-3">@x.Price</div>
+            <div class="col-md-3"><button type="submit" id="@x.Id">Dettaglio</button></div>
 
         </div>
         }

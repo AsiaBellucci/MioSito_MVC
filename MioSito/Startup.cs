@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using MioSito.Models;
 using MioSito.Models.Servicies.Application;
 using MioSito.Models.Servicies.Application.Interfaces;
+using MioSito.Models.Servicies.Infrastructure;
 
 namespace MioSito
 {
@@ -29,6 +30,7 @@ namespace MioSito
             services.AddControllersWithViews();
             services.AddTransient<IContattoService, ContattoService>();
             services.AddTransient<ICatalogoService, CatalogoService>();
+            services.AddTransient<IDatabaseConnector, SqlServerDatabaseConnector>();
             //services.AddScoped<IContattoService, ContattoService>();
             //services.AddSingleton<IContattoService, ContattoService>();
         }
@@ -60,7 +62,7 @@ namespace MioSito
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Catalogo}/{action=Index}/{id?}");
             });
             
         }
