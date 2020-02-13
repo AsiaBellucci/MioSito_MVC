@@ -39,9 +39,12 @@ namespace MioSito.Controllers
         }
 
         // GET: Catalogo/Details/5
-        public ActionResult Dettagli(CatalogoViewModel dettaglio)
+        [HttpGet]
+        public ActionResult Dettagli(string Id)
         {
-            return View(dettaglio);
+            ICatalogoService catalogo = _catalogo;
+            CatalogoViewModel Dettaglio = catalogo.GetDettaglio(Id);
+            return View(Dettaglio);
         }
 
         // GET: Catalogo/Create

@@ -31,7 +31,7 @@ namespace MioSito.Models.Servicies.Application
             //return lista;
             #endregion
 
-            string query = "SELECT Id, Title, FullPrice_Amount, ImagePath FROM Courses";
+            string query = "SELECT Id, Title, FullPrice_Currency, FullPrice_Amount, CurrentPrice_Amount, CurrentPrice_Currency, ImagePath FROM Courses";
             DataSet dataSet = db.Query(query);
             DataTable dataTable = dataSet.Tables[0];
             List<CatalogoViewModel> lista = new List<CatalogoViewModel>();
@@ -42,5 +42,20 @@ namespace MioSito.Models.Servicies.Application
             }
             return lista;
         }
+
+        public CatalogoViewModel GetDettaglio(string Id)
+        {
+            string query = $"SELECT Id, Title, ImagePath, FullPrice_Currency, FullPrice_Amount, CurrentPrice_Amount, CurrentPrice_Currency FROM Courses WHERE Id={Id}";
+            DataSet dataSet = db.Query(query);
+            DataTable dataTable = dataSet.Tables[0];
+            CatalogoViewModel dettaglio = new CatalogoViewModel();
+            foreach (DataRow RigaCorso in dataTable.Rows)
+            {
+                dettaglio = CatalogoViewModel.FromDbToView(RigaCorso);
+                
+            }
+            return dettaglio;
+        }
+
     }
 }

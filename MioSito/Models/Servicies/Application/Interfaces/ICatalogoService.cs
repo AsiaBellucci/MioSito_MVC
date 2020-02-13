@@ -9,5 +9,6 @@ namespace MioSito.Models.Servicies.Application.Interfaces
     public interface ICatalogoService
     {
         public List<CatalogoViewModel> GetCatalogo();
+        public CatalogoViewModel GetDettaglio(string Id);
     }
 }
