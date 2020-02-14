@@ -10,5 +10,6 @@ namespace MioSito.Models.Servicies.Application.Interfaces
     {
         public List<CatalogoViewModel> GetCatalogo();
         public CatalogoViewModel GetDettaglio(string Id);
+        public bool InsertDettaglio(AddCourseViweModel corso);
     }
 }

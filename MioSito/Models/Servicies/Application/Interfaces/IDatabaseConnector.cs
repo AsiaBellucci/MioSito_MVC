@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MioSito.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace MioSito.Models.Servicies.Application.Interfaces
     public interface IDatabaseConnector
     {
         public DataSet Query(string query);
+        public void InsertQuery(string insertquery, AddCourseViweModel corso);
     }
 }

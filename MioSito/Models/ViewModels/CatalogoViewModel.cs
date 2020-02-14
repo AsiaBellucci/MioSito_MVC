@@ -1,5 +1,5 @@
-﻿using Store.Models.Enums;
-using Store.Models.ValueTypes;
+﻿using MioSito.Models.Enums;
+using MioSito.Models.ValueTypes;
 using System;
 using System.Collections.Generic;
 using System.Data;

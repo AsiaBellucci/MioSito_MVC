@@ -47,10 +47,23 @@ namespace MioSito.Controllers
             return View(Dettaglio);
         }
 
-        // GET: Catalogo/Create
-        public ActionResult Create()
+        // GET: Catalogo/InsertCourse
+        public IActionResult InsertCourse()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Save([FromForm]AddCourseViweModel corso)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("InsertCourse");
+            }
+
+            bool AddCourse = _catalogo.InsertDettaglio(corso);
+            this.ModelState.Clear();
+            ViewBag.PopupMessage = "request_saved";
+            return View("InsertCourse");
         }
 
         // POST: Catalogo/Create

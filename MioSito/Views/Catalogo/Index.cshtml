@@ -22,7 +22,7 @@
     @foreach (CatalogoViewModel x in Model)
     {
 
-        <div class="row md-3 divMax">
+        <div class="row md-3 container">
             <div class="col-md-2 divImg" @*style="background-image:url(@x.ImagePath)"*@><img src="@x.ImagePath" class="immagine" /> </div>
             <div class="col-md-4">@x.Title</div>
             <div class="col-md-3">
@@ -33,5 +33,5 @@
             @*<button type="submit" id="@x.Id" onclick="SendDettaglio">Dettaglio</button>*@
         </div>
     }
-    @*</form>
-        }*@
+@*</form>
+    }*@

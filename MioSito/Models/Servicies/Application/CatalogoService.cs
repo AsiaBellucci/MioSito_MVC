@@ -57,5 +57,13 @@ namespace MioSito.Models.Servicies.Application
             return dettaglio;
         }
 
+        public bool InsertDettaglio(AddCourseViweModel corso)
+        {
+
+            string insertquery = $"INSERT INTO Courses ( Title, Description, ImagePath, Author, Email, Rating, FullPrice_Amount, FullPrice_Currency, CurrentPrice_Amount, CurrentPrice_Currency)" +
+                                $" VALUES ( @Title, @Description, @ImagePath, @Author, @Email, @Rating, @FullPrice, @Valuta, @CurrentPrice, @ValutaCor)";
+            db.InsertQuery(insertquery, corso);
+            return true;
+        }
     }
 }

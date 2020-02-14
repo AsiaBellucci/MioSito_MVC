@@ -120,9 +120,10 @@ body {
 }*/
 div{
     border:2px dashed red; 
+    
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 600px) {
     .immagine {
         border:1px solid blue;
         width:50px; height:100px;
@@ -134,4 +135,45 @@ div{
 
 .immagine {
     max-width: 100%; height: auto;
+}
+
+.clearFix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.container{
+    /*display:inline;*/
+    /*display:inline-block;*/
+}
+
+/*---------------------------------------------------------------------------------*/
+
+.description{
+    width:100%; height:100%;
+}
+.dettaglio{
+    width:70%;
+    float:left;
+}
+.prices{
+    width:29%; height:100px;
+    float:right;
+
+}
+.priceDel{
+    float:right;
+    font-size:10px;
+}
+
+.formInserimento{
+    width:100%; height:500px;
+}
+.testo {
+    width: 40%;
+    float: left;
+}
+.input {
+    width: 59%;
+    float: right;
 }

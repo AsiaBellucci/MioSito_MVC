@@ -62,7 +62,7 @@ namespace MioSito
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Catalogo}/{action=Index}/{id?}");
+                    pattern: "{controller=Catalogo}/{action=InsertCourse}/{id?}");
             });
             
         }

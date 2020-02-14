@@ -3,9 +3,20 @@
 *@
 @using MioSito.Models.ViewModels
 @model CatalogoViewModel
-<div>
-    dettagli id :@Model.Id<br />
-    dettagli prodotto :@Model.Title<br />
-    immagine: <img src="@Model.ImagePath" /><br />
-    prezzo: € @Model.FullPrice
+
+<h2>Dettaglio corso @Model.Id</h2>
+
+<div class="row md-3 container ">
+    <div class="col-md-7 description clearFix">
+        <div class="dettaglio">
+            <div>Titolo corso: @Model.Title</div>
+        </div>
+        <div class="col-md-3 prices clearFix">
+            <div  style="background-color:#ffff66;">@Model.FullPrice</div><br />
+            <div class="priceDel"><del>@Model.CurrentPrice</del></div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        Immagine: <img src="@Model.ImagePath" class="immagine" /><br />
+    </div>
 </div>
