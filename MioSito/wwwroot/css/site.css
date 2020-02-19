@@ -117,11 +117,11 @@ body {
 }
 .divImg {
     max-width:100%;
-}*/
+}
 div{
     border:2px dashed red; 
-    
-}
+ }*/   
+
 
 @media screen and (max-width: 600px) {
     .immagine {
@@ -170,10 +170,29 @@ div{
     width:100%; height:500px;
 }
 .testo {
-    width: 40%;
-    float: left;
+    width: 100%;
+    
+}
+.testo label{
+    margin:5px 0px; 
 }
 .input {
-    width: 59%;
+    width: 79%;
     float: right;
 }
+.input input{
+    margin:10px 0px;
+}
+
+.errori{
+    color:red;
+}
+/*.form-label {
+    padding-top: calc(.375rem + 1px);
+    padding-bottom: calc(.375rem + 1px);
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: 1.5;
+    float: left !important;
+}*/
+

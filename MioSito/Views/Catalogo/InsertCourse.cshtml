@@ -2,80 +2,77 @@
 @using MioSito.Models.Enums
 @model AddCourseViweModel
 
-<p>Insert Into Database</p>
+<h2>Insert Into Database</h2>
 
-<form asp-controller="Catalogo" asp-action="Save" method="post">
-    <div class="clearFix formInserimento">
-        <div class="testo">
-            <label class="col-md-3 col-form-label"> nuovo titolo:</label>
-            <input required class="col-sm-5 form-control" type="text" name="Title" />
+<form asp-controller="Catalogo" asp-action="Save" enctype="application/x-www-form-urlencoded" method="post">
+    <div class="clearFix formInserimento form-row">
+        
+        <label class="col-md-3 col-form-label"> nuovo titolo:</label>
+        <div class="col-sm-9">
+            <input required class="col-md-5 form-control" type="text" name="Title" />
             <span asp-validation-for="Title" />
-            <label class="col-md-3 col-form-label"> nuovo descrizione:</label>
-            <input class="col-sm-5 form-control" type="text" name="Description" />
+        </div>
+        <label class="col-md-3 col-form-label"> nuova descrizione:</label>
+        <div class="col-sm-9">
+            <input class="col-md-5 form-control" type="text" name="Description" />
             <span asp-validation-for="Description" />
-            <label class="col-md-3 col-form-label"> nuovo immagine:</label>
-            <input class="col-sm-5 form-control" type="text" name="ImagePath" />
+        </div>
+        <label class="col-md-3 col-form-label"> nuova immagine:</label>
+        <div class="col-sm-9">
+            <input type="file" class="col-md-5 form-control-file" name="ImagePath">
             <span asp-validation-for="ImagePath" />
-            <label class="col-md-3 col-form-label"> nuovo autore:</label>
-            <input required class="col-sm-5 form-control" type="text" name="Author" />
+        </div>
+        <label class="col-md-3 col-form-label"> nuovo autore:</label>
+        <div class="col-sm-9">
+            <input required class="col-md-5 form-control" type="text" name="Author" />
             <span asp-validation-for="Author" />
-            <label class="col-md-3 col-form-label"> nuovo raiting:</label>
-            <input class="col-sm-5 form-control" type="text" name="Rating" />
+        </div>
+        <label class="col-md-3 col-form-label"> nuovo raiting:</label>
+        <div class="col-sm-9">
+            <input required class="col-md-5 form-control" type="text" name="Rating" />
             <span asp-validation-for="Rating" />
-            <label class="col-md-3 col-form-label"> nuova email:</label>
-            <input class="col-sm-5 form-control" type="text" name="Email" />
+        </div>
+        <label class="col-md-3 col-form-label"> nuova email:</label>
+        <div class="col-sm-9">
+            <input class="col-md-5 form-control" type="text" name="Email" />
             <span asp-validation-for="Email" />
-            <label class="col-md-3 col-form-label"> nuovo prezzofull:</label>
-            <input class="col-sm-5 form-control" type="text" name="FullPrice" />
+        </div>
+        <label class="col-md-3 col-form-label"> nuovo prezzofull:</label>
+        <div class="col-sm-9 form-row">
+            <input required class="col-md-3 form-control" type="text" name="FullPrice" />
             <span asp-validation-for="FullPrice" />
-            <label class="col-md-3 col-form-label"> nuovo currency:</label>
-            <select class="col-sm-5 custom-select" name="Valuta">
+
+            <select required class="col-md-12 custom-select" name="Valuta">
                 <option selected>Choose</option>
-                @*@foreach(x in )
-                {*@
                 <option value="EUR">@Currency.EUR</option>
                 <option value="USD">@Currency.USD</option>
                 <option value="GBP">@Currency.GBP</option>
-                @*}*@
             </select><br />
             <span asp-validation-for="Valuta" />
-            <label class="col-md-3 col-form-label"> nuovo prezzoc:</label>
-            <input class="col-sm-5 form-control" type="text" name="CurrentPrice" />
+        </div>
+        <label class="col-md-3 col-form-label"> nuovo prezzoc:</label>
+        <div class="col-sm-9 form-row">
+            <input required class="col-md-3 form-control" type="text" name="CurrentPrice" />
             <span asp-validation-for="CurrentPrice" />
-            <label class="col-md-3 col-form-label"> nuovo currency:</label>
-            <select class="col-sm-5 custom-select" id="inputGroupSelect02" name="ValutaCor">
+
+            <select required class="col-md-12 custom-select" id="inputGroupSelect02" name="ValutaCor">
                 <option selected>Choose</option>
                 <option value="EUR">@Currency.EUR</option>
                 <option value="USD">@Currency.USD</option>
                 <option value="GBP">@Currency.GBP</option>
             </select>
             <span asp-validation-for="ValutaCor" />
-
-            @*insertsci un nuovo tipoprezzo:<input type="text" asp-for="@Model.Valuta" /><br />
-            insertsci un nuovo tipoprezzoc:<input type="text" asp-for="@Model.ValutaCor" /><br />*@
         </div>
-        <div class="input">
 
+            @*    insertsci un nuovo tipoprezzo:<input type="text" asp-for="@Model.Valuta" /><br />
+        insertsci un nuovo tipoprezzoc:<input type="text" asp-for="@Model.ValutaCor" /><br />*@
+            
 
-        </div>
         <div asp-validation-summary="All"></div>
-        <input type="submit" />
-                                @*-----------------asp-validation-for è in grado di presentare gli errori di validazione per una specifica proprietà del modello. Sostituisce Html.ValidationMessageFor();*@
-                                @*-----------------asp-validation-summary può visualizzare tutti gli errori di validazione o solo quelli che riguardano le proprietà del modello. Sostituisce Html.ValidationSummary();*@
+        <input type="submit" class="btn btn-primary" value="Invia dati al DB">
+        @*    -----------------asp-validation-for è in grado di presentare gli errori di validazione per una specifica proprietà del modello. Sostituisce Html.ValidationMessageFor();*@
+        @*-----------------asp-validation-summary può visualizzare tutti gli errori di validazione o solo quelli che riguardano le proprietà del modello. Sostituisce Html.ValidationSummary();*@
     </div>
 </form>
-@*<form>
-    <div class="form-group row">
-        <label for="staticEmail" class="col-md-3 col-form-label">Email</label>
-        <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword" class="col-md-3 col-form-label">Password</label>
-        <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-        </div>
-    </div>
-</form>*@
+
 

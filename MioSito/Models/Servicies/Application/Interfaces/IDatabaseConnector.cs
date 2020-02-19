@@ -9,7 +9,10 @@ namespace MioSito.Models.Servicies.Application.Interfaces
 {
     public interface IDatabaseConnector
     {
-        public DataSet Query(string query);
-        public void InsertQuery(string insertquery, AddCourseViweModel corso);
+        //public DataSet QueryAsync(string query);
+        //public void InsertQueryAsync(string insertquery, AddCourseViweModel corso);
+
+        public  Task<DataSet> QueryAsync(string query);
+        public  Task InsertQueryAsync(string insertquery, AddCourseViweModel corso);
     }
 }

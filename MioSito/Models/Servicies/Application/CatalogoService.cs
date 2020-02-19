@@ -16,7 +16,7 @@ namespace MioSito.Models.Servicies.Application
             this.db = dbConnector;
         }
 
-        public List<CatalogoViewModel> GetCatalogo()
+        public async Task<List<CatalogoViewModel>> GetCatalogoAsync()
         {
             #region Codice senza db
             //CatalogoViewModel catalogo = new CatalogoViewModel()
@@ -32,7 +32,7 @@ namespace MioSito.Models.Servicies.Application
             #endregion
 
             string query = "SELECT Id, Title, FullPrice_Currency, FullPrice_Amount, CurrentPrice_Amount, CurrentPrice_Currency, ImagePath FROM Courses";
-            DataSet dataSet = db.Query(query);
+            DataSet dataSet = await db.QueryAsync(query);
             DataTable dataTable = dataSet.Tables[0];
             List<CatalogoViewModel> lista = new List<CatalogoViewModel>();
             foreach (DataRow RigaCorso in dataTable.Rows)
@@ -43,10 +43,10 @@ namespace MioSito.Models.Servicies.Application
             return lista;
         }
 
-        public CatalogoViewModel GetDettaglio(string Id)
+        public async Task<CatalogoViewModel> GetDettaglioAsync(string Id)
         {
             string query = $"SELECT Id, Title, ImagePath, FullPrice_Currency, FullPrice_Amount, CurrentPrice_Amount, CurrentPrice_Currency FROM Courses WHERE Id={Id}";
-            DataSet dataSet = db.Query(query);
+            DataSet dataSet = await db.QueryAsync(query);
             DataTable dataTable = dataSet.Tables[0];
             CatalogoViewModel dettaglio = new CatalogoViewModel();
             foreach (DataRow RigaCorso in dataTable.Rows)
@@ -62,8 +62,10 @@ namespace MioSito.Models.Servicies.Application
 
             string insertquery = $"INSERT INTO Courses ( Title, Description, ImagePath, Author, Email, Rating, FullPrice_Amount, FullPrice_Currency, CurrentPrice_Amount, CurrentPrice_Currency)" +
                                 $" VALUES ( @Title, @Description, @ImagePath, @Author, @Email, @Rating, @FullPrice, @Valuta, @CurrentPrice, @ValutaCor)";
-            db.InsertQuery(insertquery, corso);
+            db.InsertQueryAsync(insertquery, corso);
             return true;
         }
+
+        
     }
 }

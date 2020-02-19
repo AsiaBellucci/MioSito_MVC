@@ -20,7 +20,7 @@ namespace MioSito.Controllers
             this._catalogo = catalogo;
         }
         // GET: Catalogo
-        public ActionResult Index()
+        public async Task<ActionResult> IndexAsync()
         {
             #region Vecchio codice
             //Catalogo c = new Catalogo()
@@ -34,16 +34,16 @@ namespace MioSito.Controllers
             //lista.Add(c);
             #endregion
             ICatalogoService catalogo = _catalogo;
-            List<CatalogoViewModel> listaCatalogo = catalogo.GetCatalogo();
+            List<CatalogoViewModel> listaCatalogo = await catalogo.GetCatalogoAsync();
             return View(listaCatalogo);
         }
 
         // GET: Catalogo/Details/5
         [HttpGet]
-        public ActionResult Dettagli(string Id)
+        public async Task<ActionResult> DettagliAsync(string Id)
         {
             ICatalogoService catalogo = _catalogo;
-            CatalogoViewModel Dettaglio = catalogo.GetDettaglio(Id);
+            CatalogoViewModel Dettaglio = await catalogo.GetDettaglioAsync(Id);
             return View(Dettaglio);
         }
 
@@ -75,7 +75,7 @@ namespace MioSito.Controllers
             {
                 // TODO: Add insert logic here
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
@@ -98,7 +98,7 @@ namespace MioSito.Controllers
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
@@ -121,7 +121,7 @@ namespace MioSito.Controllers
             {
                 // TODO: Add delete logic here
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {

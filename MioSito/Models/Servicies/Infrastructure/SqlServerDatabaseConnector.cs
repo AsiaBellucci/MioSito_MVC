@@ -13,14 +13,14 @@ namespace MioSito.Models.Servicies.Infrastructure
 {
     public class SqlServerDatabaseConnector : IDatabaseConnector
     {
-        public DataSet Query(string query)
+        public async Task<DataSet> QueryAsync(string query)
         {
             using (SqlConnection conn = new SqlConnection("Server=superdatabaseditest.database.windows.net;Database=Superdatabase;User Id=SuperUser;Password=MarcoGraziottiRegna33;"))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn)) 
                 {
-                    using(SqlDataReader reader = cmd.ExecuteReader())
+                    using(SqlDataReader reader = await cmd.ExecuteReaderAsync())
                     {
                     DataSet dataSet = new DataSet();
                     DataTable dataTable = new DataTable();
@@ -32,16 +32,17 @@ namespace MioSito.Models.Servicies.Infrastructure
             }
         }
 
-        public void InsertQuery(string insertquery, AddCourseViweModel corso)
+        public async Task InsertQueryAsync(string insertquery, AddCourseViweModel corso)
         {
             using (SqlConnection conn = new SqlConnection("Server=superdatabaseditest.database.windows.net;Database=Superdatabase;User Id=SuperUser;Password=MarcoGraziottiRegna33;"))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 using(SqlCommand cmd = new SqlCommand(insertquery, conn))
                 {
+                    string Image = $"/Courses/{corso.ImagePath}";
                     cmd.Parameters.AddWithValue("@Title", corso.Title);
                     cmd.Parameters.AddWithValue("@Description", corso.Description);
-                    cmd.Parameters.AddWithValue("@ImagePath", corso.ImagePath);
+                    cmd.Parameters.AddWithValue("@ImagePath", Image);
                     cmd.Parameters.AddWithValue("@Author", corso.Author);
                     cmd.Parameters.AddWithValue("@Email", corso.Email);
                     cmd.Parameters.AddWithValue("@Rating", corso.Rating);
@@ -50,7 +51,7 @@ namespace MioSito.Models.Servicies.Infrastructure
                     cmd.Parameters.AddWithValue("@CurrentPrice", corso.CurrentPrice);
                     cmd.Parameters.AddWithValue("@ValutaCor", corso.ValutaCor);
                     
-                    int result = cmd.ExecuteNonQuery();
+                    int result = await cmd.ExecuteNonQueryAsync();
                     if (result < 0)
                         Console.WriteLine("ERROR inserting data into db");
                     else

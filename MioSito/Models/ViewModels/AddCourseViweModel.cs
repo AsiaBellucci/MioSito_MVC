@@ -28,19 +28,19 @@ namespace MioSito.Models.ViewModels
         [EmailAddress, StringLength(30), Display(Name = "Inserisci E-mail")]
         public string Email { get; set; }
 
-        [Required]
+        [Required, Display(Name ="Inserisci rating")]
         public float Rating { get; set; }
         
-        [Required]
+        [Required, Display(Name = "Inserisci perzzo")]
         public double FullPrice { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Inserisci valuta")]
         public string Valuta { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Inserisci prezzo")]
         public double CurrentPrice { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Inserisci valuta")]
         public string ValutaCor { get; set; }
     }
 }
