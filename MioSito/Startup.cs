@@ -31,6 +31,7 @@ namespace MioSito
             services.AddTransient<IContattoService, ContattoService>();
             services.AddTransient<ICatalogoService, CatalogoService>();
             services.AddTransient<IDatabaseConnector, SqlServerDatabaseConnector>();
+            services.AddTransient<IProductService, AppleService>();
             //services.AddScoped<IContattoService, ContattoService>();
             //services.AddSingleton<IContattoService, ContattoService>();
         }
